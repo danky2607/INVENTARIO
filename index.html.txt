@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solicitud de Materiales</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Solicitud de Materiales</h1>
+  <form id="materials-form">
+    <div class="material">
+      <input type="checkbox" name="material" value="Lápices" data-index="0">
+      <img src="URL_DE_LAPICES" alt="Lápices">
+      Lápices
+      <input type="number" name="quantity" class="quantity" data-index="0" min="1" disabled>
+    </div>
+    <div class="material">
+      <input type="checkbox" name="material" value="Cuadernos" data-index="1">
+      <img src="URL_DE_CUADERNOS" alt="Cuadernos">
+      Cuadernos
+      <input type="number" name="quantity" class="quantity" data-index="1" min="1" disabled>
+    </div>
+    <!-- Repite el bloque div.material para cada material -->
+    <button type="submit">Enviar</button>
+  </form>
+
+  <script src="script.js"></script>
+</body>
+</html>

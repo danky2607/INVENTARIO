@@ -1,0 +1,40 @@
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('materials-form');
+  const checkboxes = form.querySelectorAll('input[type="checkbox"]');
+  const quantities = form.querySelectorAll('input[type="number"]');
+
+  checkboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', function() {
+      const index = this.getAttribute('data-index');
+      const quantityInput = form.querySelector(`input[type="number"][data-index="${index}"]`);
+      quantityInput.disabled = !this.checked;
+      if (!this.checked) {
+        quantityInput.value = '';
+      }
+    });
+  });
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const data = new FormData(form);
+    const materials = [];
+    const quantities = [];
+
+    checkboxes.forEach(checkbox => {
+      if (checkbox.checked) {
+        const index = checkbox.getAttribute('data-index');
+        const quantityInput = form.querySelector(`input[type="number"][data-index="${index}"]`);
+        materials.push(checkbox.value);
+        quantities.push(quantityInput.value);
+      }
+    });
+
+    const requestData = materials.map((material, index) => ({
+      material,
+      quantity: quantities[index]
+    }));
+
+    console.log(requestData);
+    // Aquí puedes enviar requestData a un servidor o guardarlo en una base de datos
+  });
+});

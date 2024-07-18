@@ -1,0 +1,25 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.material {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.material img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.quantity {
+  width: 50px;
+  margin-left: 10px;
+}
